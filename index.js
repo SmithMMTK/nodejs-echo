@@ -4,6 +4,25 @@ const port = 3000
 var os = require('os')
 const { timeStamp } = require('console')
 var ip = require("ip")
+const appInsights = require("applicationinsights");
+
+let appInsights = require('applicationinsights');
+let appInsights = require("applicationinsights");
+appInsights.setup("<instrumentation_key>")
+    .setAutoDependencyCorrelation(true)
+    .setAutoCollectRequests(true)
+    .setAutoCollectPerformance(true, true)
+    .setAutoCollectExceptions(true)
+    .setAutoCollectDependencies(true)
+    .setAutoCollectConsole(true)
+    .setUseDiskRetryCaching(true)
+    .setSendLiveMetrics(true)
+    .setDistributedTracingMode(appInsights.DistributedTracingModes.AI)
+    .start();
+
+let client = appInsights.defaultClient;
+
+client.config.proxyHttpsUrl = "http://xxx.xxx.xxx.xxx";
 
 var ifaces = os.networkInterfaces()
 var pip = getIPAddress()
