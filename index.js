@@ -6,9 +6,7 @@ const { timeStamp } = require('console')
 var ip = require("ip")
 const appInsights = require("applicationinsights");
 
-let appInsights = require('applicationinsights');
-let appInsights = require("applicationinsights");
-appInsights.setup("<instrumentation_key>")
+appInsights.setup("780d38a0-8b31-4113-ac60-b9c83d459831")
     .setAutoDependencyCorrelation(true)
     .setAutoCollectRequests(true)
     .setAutoCollectPerformance(true, true)
@@ -20,9 +18,9 @@ appInsights.setup("<instrumentation_key>")
     .setDistributedTracingMode(appInsights.DistributedTracingModes.AI)
     .start();
 
-let client = appInsights.defaultClient;
+// let client = appInsights.defaultClient;
 
-client.config.proxyHttpsUrl = "http://xxx.xxx.xxx.xxx";
+// client.config.proxyHttpsUrl = "http://xxx.xxx.xxx.xxx";
 
 var ifaces = os.networkInterfaces()
 var pip = getIPAddress()
